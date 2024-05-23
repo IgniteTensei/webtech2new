@@ -1,0 +1,158 @@
+<div>
+    <form [formGroup]="comicForm">
+        <mat-card class="comic-card">
+            <mat-card-header>
+                <mat-card-title> - SUBMIT A COMIC - </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Title</mat-label>
+                            <input name="comic.title" matInput [(ngModel)]="comic.title" formControlName="title" autocomplete="off">
+                            <mat-error *ngIf="comicForm.controls['title'].hasError('required')">
+                                Title is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Author</mat-label>
+                            <input name="comic.author" matInput [(ngModel)]="comic.author" formControlName="author" autocomplete="off">
+                            <mat-error *ngIf="comicForm.controls['author'].hasError('required')">
+                                Author is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Publisher</mat-label>
+                            <input name="comic.publisher" [(ngModel)]="comic.publisher" matInput formControlName="publisher" autocomplete="off">
+                            <mat-error *ngIf="comicForm.controls['publisher'].hasError('required')">
+                                Publisher is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Pages</mat-label>
+                            <input name="comic.pages" [(ngModel)]="comic.pages" matInput type="number" formControlName="pages" autocomplete="off">
+                            <mat-error *ngIf="comicForm.controls['pages'].hasError('required')">
+                                Pages is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Type</mat-label>
+                            <mat-select formControlName="type">
+                                <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="comicForm.controls['type'].hasError('required')">
+                                Type is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Release date</mat-label>
+                        <input name="comic.releaseDate" [(ngModel)]="comic.releaseDate" matInput [matDatepicker]="picker" formControlName="releaseDate" autocomplete="off">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="comicForm.controls['releaseDate'].hasError('required')">
+                            Release date is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Synopsis</mat-label>
+                        <textarea name="comic.synopsis" [(ngModel)]="comic.synopsis" matInput autocomplete="off" formControlName="synopsis"></textarea>
+                        <mat-error *ngIf="comicForm.controls['synopsis'].hasError('required')">
+                            Synopsis is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Price</mat-label>
+                            <input
+                            name="comic.price"
+                            [(ngModel)]="comic.price"
+                            matInput
+                            type="number"
+                            placeholder="0"
+                            min="0"
+                            pattern="\d+"
+                            oninput="validity.valid||(value='');"
+                            formControlName="price"
+                            autocomplete="off">
+                            <mat-error *ngIf="comicForm.controls['price'].hasError('required')">
+                                Price is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Condition</mat-label>
+                            <mat-select formControlName="condition">
+                                <mat-option *ngFor="let condition of conditions" [value]="condition">{{condition}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="comicForm.controls['condition'].hasError('required')">
+                                Condition is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>ISBN</mat-label>
+                            <input
+                            name="comic.isbn"
+                            [(ngModel)]="comic.isbn"
+                            matInput
+                            type="text"
+                            placeholder="ISBN"
+                            formControlName="isbn"
+                            autocomplete="off">
+                            <mat-error *ngIf="comicForm.controls['isbn'].hasError('required')">
+                                ISBN is required
+                            </mat-error>
+                            <mat-error *ngIf="comicForm.controls['isbn'].hasError('pattern')">
+                                ISBN must be 13 digits long and contain only numbers
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Format</mat-label>
+                            <mat-select formControlName="format">
+                                <mat-option *ngFor="let format of formats" [value]="format">{{format}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="comicForm.controls['format'].hasError('required')">
+                                Format is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button [disabled]="comicForm.invalid" mat-raised-button color="primary" type="button" (click)="onSubmit()">Add Comic</button>
+                <div *ngIf="comicForm.invalid" style="color: red; margin-left: 10px;">
+                    You have to fill in the whole form!
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>
+    
+<button mat-raised-button color="primary" class="back-button" (click)="goBack()">Back</button>

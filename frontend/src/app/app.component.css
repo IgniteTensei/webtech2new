@@ -1,0 +1,10 @@
+.title {
+    flex: 1;
+    text-align: center;
+    color: white;
+    font-family: Impact, sans-serif;
+    font-size: 40px !important;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); 
+  }

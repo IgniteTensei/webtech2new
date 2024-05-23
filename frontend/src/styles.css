@@ -1,0 +1,145 @@
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: rgb(255, 33, 33);
+    box-shadow: 0 0 10px rgb(22, 20, 20);
+}
+
+.toolbar-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+.toolbar-image {
+    width: 90px; 
+    height: 48px; 
+    background-image: url('./assets/logo.webp'); 
+    background-size: cover; 
+    cursor: pointer;
+  }
+
+html, body { height: 100%; }
+
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    position: absolute;
+    top: 64px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    z-index: 150
+}
+
+mat-form-field { width: 50vw; }
+
+table {
+    width: 100%;
+    word-wrap: break-word;
+    table-layout:fixed;
+    background-color: #333; 
+    color: rgb(255, 199, 151);
+}
+
+.mat-row {
+    height: auto;
+    color: rgb(255, 199, 151);
+}
+
+.mat-cell {
+    padding: 15px 15px 15px 15px !important;
+    color: rgb(255, 199, 151);
+}
+
+.mat-app-background {
+    background-color: #333; 
+}
+
+.mat-body,
+.mat-body-1,
+.mat-typography {
+    color: #333;
+}
+
+.mat-form-field {
+    width: 100%;
+    color: rgb(255, 199, 151); 
+    --mat-form-field-outline-color: #ffa500; 
+  }
+    
+  .mat-form-field-label,
+  .mat-form-field-placeholder {
+    color: rgba(255, 200, 151, 0.481) !important; 
+  }
+
+  .mat-form-field:not(.mat-form-field-disabled) .mat-form-field-outline {
+    color:   rgba(255, 200, 151, 0.725); 
+    border-width: 0.5px;
+  }
+
+  .mat-form-field.mat-focused .mat-form-field-outline {
+    color: #ffd500; 
+  }
+
+  .mat-select-value-text {
+    color: rgb(255, 199, 151) !important;
+  }
+
+  .mat-datepicker-toggle-default-icon {
+    color: rgba(255, 200, 151, 0.725);
+  }
+
+  .mat-select-arrow {
+    color: rgba(255, 200, 151, 0.725); 
+  }
+
+  .mat-card-title {
+    font-family: Impact, sans-serif;
+    font-size: 30px !important;
+    color: rgb(255, 199, 151);
+  }
+
+  .mat-table {
+    background-color: #222; /* Dark background color */
+    opacity: 0; 
+    animation: fadeInContainer 1s forwards; 
+  }
+
+  .mat-header-cell {
+    color: rgb(255, 71, 71); /* White text color */
+  }
+
+  .mat-paginator {
+    color: rgb(255, 199, 151);
+    background-color: #222; /* Dark background color */
+    opacity: 0; 
+    animation: fadeInContainer 1s forwards; 
+  }
+
+  .mat-icon-button {
+    color: rgb(255, 199, 151);
+  }
+
+  .mat-paginator-range-actions{
+    color: rgb(255, 199, 151);
+  }
+
+  .mat-paginator-navigation button .mat-icon-button.mat-button-disabled.mat-button-disabled{
+    color: #fff !important; /* White color */
+  }
+
+  .mat-icon-button.mat-button-disabled.mat-button-disabled{
+    color: rgb(255, 199, 151);
+  }
+
+  @keyframes fadeInContainer {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
