@@ -8,4 +8,4 @@
     1. /frontend: npm install
     2. /frontend: ng serve
 
-(Ha kompatibilitási hibát dob talán ez a parancssor segíthet: "set NODE_OPTIONS=--openssl-legacy-provider")
+(Ha kompatibilitási hibát dob a frontend talán ez a parancssor segíthet: "set NODE_OPTIONS=--openssl-legacy-provider")
