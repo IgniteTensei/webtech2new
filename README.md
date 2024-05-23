@@ -9,3 +9,5 @@
     2. /frontend: ng serve
 
 (Ha kompatibilitási hibát dob a frontend talán ez a parancssor segíthet: "set NODE_OPTIONS=--openssl-legacy-provider")
+
+Készítő: Györki Ádám - A7TIJX
